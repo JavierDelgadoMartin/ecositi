@@ -7,12 +7,28 @@ import {MaterialModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { PrincipalComponent } from './principal/principal.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { PrizeComponent } from './prize/prize.component';
+import { PrizeDetailComponent } from './prize-detail/prize-detail.component';
+import { ModerateComponent } from './moderate/moderate.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterUserComponent,
+    PrincipalComponent,
+    ProductComponent,
+    ProductDetailComponent,
+    PrizeComponent,
+    PrizeDetailComponent,
+    ModerateComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,

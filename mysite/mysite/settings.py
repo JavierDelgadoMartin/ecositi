@@ -38,11 +38,24 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'django.contrib.sites',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
     'user',
     'category',
     'prize',
     'publication',
 ]
+
+SITE_ID = 1
+
+EMAIL_BACKEND  =  'django.core.mail.backends.console.EmailBackend'
+
+AUTH_USER_MODEL = 'user.user'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,3 +140,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+rest_framework = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.Isauthenticated',
+        ),
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework.authentication.TokenAuthentication',
+        ),
+}

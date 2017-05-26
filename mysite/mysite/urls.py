@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import url,include
+from rest_framework import routers, serializers, viewsets
+
+from user import views
+
+router = routers.DefaultRouter()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    #url(r'^userDetail/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
+    url(r'^rest-auth/',include('rest_auth.urls')),
+    url(r'^rest-auth/registration/',include('rest_auth.registration.urls')),
 ]
