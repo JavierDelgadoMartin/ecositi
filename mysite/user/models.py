@@ -1,15 +1,13 @@
+from django.contrib.auth.models import User
 from django.db import models
-from django.contrib.auth.models import PermissionsMixin,AbstractBaseUser
 
-
-# Create your models here.
-
-class User (AbstractBaseUser,PermissionsMixin):
-    username = models.Charfield()
-    passwd = AbstractUser.password()
-    email = models.EmailField()
-    point = models.IntegerField()
+class Perfil(models.Model):
+    user_fk = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30, blank=False, default=None)
+    last_name = models.CharField(max_length=30, blank=False, default=None)
+    city = models.CharField(max_length=30, blank=False)
+    state = models.CharField(max_length=30, blank=False)
     birth_date = models.DateField()
-    photo = models.ImageField()
-    city = models.CharField(max_length=20,default='')
-    state = models.CharField(max_length=50,default='')
+    point = models.IntegerField()
+    photo = models.ImageField(blank=False)
+

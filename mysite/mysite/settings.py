@@ -53,9 +53,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND  =  'django.core.mail.backends.console.EmailBackend'
-
-AUTH_USER_MODEL = 'user.user'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,10 +140,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 rest_framework = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.Isauthenticated',
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRender',
         ),
     'DEFAULT_AUTHENTICATION_CLASSES':(
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
         ),
 }
