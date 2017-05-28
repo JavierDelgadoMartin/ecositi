@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Prize
+from rest_framework.response import Response
+from .serializers import PrizeSerializer
 
-# Create your views here.
+
+class PrizeViewSet(viewsets.ModelViewSet):
+    queryset = Prize.objects.all()
+    serializer_class = PrizeSerializer
+
