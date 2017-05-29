@@ -18,6 +18,8 @@ from django.conf.urls import url, include
 from user.urls import routerPerfil
 from category.urls import routerCategory
 from prize.urls import routerPrize
+from publication.urls import routerPublication
+from build.urls import routerBuild
 
 
 urlpatterns = [
@@ -28,4 +30,5 @@ urlpatterns = [
 urlpatterns += routerPerfil.urls
 urlpatterns += routerCategory.urls
 urlpatterns += routerPrize.urls
-
+urlpatterns += routerPublication.urls
+urlpatterns += routerBuild.urls
