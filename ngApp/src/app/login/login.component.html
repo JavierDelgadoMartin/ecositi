@@ -1,11 +1,9 @@
-<form action="">
 <md-input-container>
-  <input mdInput placeholder="Usuario">
+  <input mdInput placeholder="Usuario" [(ngModel)]="username">
 </md-input-container>
-<md-input-container>
-  <input type="password" mdInput placeholder="Contraseña">
-</md-input-container>
-</form>
 
-<p>{{username}}
-{{password}}</p>
+<md-input-container>
+  <input type="password" mdInput placeholder="Contraseña" [(ngModel)]="password">
+</md-input-container>
+
+<button md-raised-button (click)="logInUser()">Validar</button>

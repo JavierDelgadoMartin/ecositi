@@ -5,13 +5,18 @@ import {Observable, Subject} from 'rxjs/Rx';
 
 @Injectable()
 export class ApiServiceService {
-  
+  private token : Subject<any> = new Subject<any>();
+  private link = "http://127.0.0.1:8000/perfil/";
   constructor(private ajax:Http) { }
 
-  login(username,password){
-    return this.ajax.post('http://127.0.0.1:8000/rest-auth/login/',{
-    "username": username,
-    "password": password})
+  login(user,pass): Observable<any>{
+    this.getToken(user,pass);
+    return this.token.asObservable();
+    }
+    getToken(username,password){
+    var data = JSON.stringify({username: username,password: password});
+    this.ajax.get(this.link)
     .map(response => response.json())
+    .subscribe(data =>this.token.next(data))
   }
 }

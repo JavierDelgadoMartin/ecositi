@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_auth.registration',
+    'corsheaders',
     'user',
     'category',
     'prize',
@@ -64,7 +65,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+REST_SESSION_LOGIN = False
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -124,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
@@ -145,7 +149,27 @@ rest_framework = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRender',
         ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.BasicAuthentication',
+        ),
     'DEFAULT_AUTHENTICATION_CLASSES':(
         'rest_framework.authentication.TokenAuthentication'
         ),
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+
+    'localhost:8000',
+    '127.0.0.1:8000'
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
@@ -7,16 +7,18 @@ import { ApiServiceService } from '../api-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  private username = "";
+  private password = "";
   constructor(private service:ApiServiceService) { }
-  private username;
-  private password = 'mojon';
-  private token;
+  
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   logInUser(){
-    this.token = this.service.login(this.username,this.password);
+    var token;
+    if (this.username != "" || this.password != ""){
+      token = this.service.login(this.username,this.password);
+      console.log(token);
+    }
   }
 }
