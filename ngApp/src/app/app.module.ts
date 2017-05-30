@@ -16,19 +16,12 @@ import { PrizeDetailComponent } from './prize-detail/prize-detail.component';
 import { ModerateComponent } from './moderate/moderate.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 
+import { ApiServiceService } from './api-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterUserComponent,
-    PrincipalComponent,
-    ProductComponent,
-    ProductDetailComponent,
-    PrizeComponent,
-    PrizeDetailComponent,
-    ModerateComponent,
-    ConfigurationComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +30,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [ApiServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

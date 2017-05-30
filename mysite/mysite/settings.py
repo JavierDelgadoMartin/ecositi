@@ -41,11 +41,15 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.sites',
     'rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'rest_auth.registration',
     'user',
     'category',
     'prize',
     'publication',
+    'build',
 ]
 
 SITE_ID = 1
@@ -142,7 +146,6 @@ rest_framework = {
         'rest_framework.renderers.BrowsableAPIRender',
         ),
     'DEFAULT_AUTHENTICATION_CLASSES':(
-        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication'
         ),
 }

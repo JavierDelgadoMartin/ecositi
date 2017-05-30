@@ -22,9 +22,11 @@ from publication.urls import routerPublication
 from build.urls import routerBuild
 
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest_auth/', include('rest_auth.urls')),
+    url(r'rest_auth/registration', include('rest_auth.registration.urls')),
 ]
 
 urlpatterns += routerPerfil.urls

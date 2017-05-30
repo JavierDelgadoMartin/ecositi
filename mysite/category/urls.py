@@ -3,4 +3,4 @@ from category import views
 
 
 routerCategory = routers.SimpleRouter()
-routerCategory.register(r'Category',views.CategoryViewSet)
+routerCategory.register(r'category',views.CategoryViewSet)

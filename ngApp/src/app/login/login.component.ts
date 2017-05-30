@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ApiServiceService) { }
+  private username;
+  private password = 'mojon';
+  private token;
 
   ngOnInit() {
   }
 
+  logInUser(){
+    this.token = this.service.login(this.username,this.password);
+  }
 }
