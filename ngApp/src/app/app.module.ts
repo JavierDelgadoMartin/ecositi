@@ -17,11 +17,13 @@ import { ModerateComponent } from './moderate/moderate.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 
 import { ApiServiceService } from './api-service.service';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

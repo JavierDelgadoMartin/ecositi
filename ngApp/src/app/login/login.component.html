@@ -1,9 +1,17 @@
-<md-input-container>
-  <input mdInput placeholder="Usuario" [(ngModel)]="username">
-</md-input-container>
-
-<md-input-container>
-  <input type="password" mdInput placeholder="Contraseña" [(ngModel)]="password">
-</md-input-container>
-
-<button md-raised-button (click)="logInUser()">Validar</button>
+<div  class="form-login">
+<md-grid-list cols="1" rowHeight="100px">
+  <md-grid-tile colspan=1 rowspan=1>
+    <md-input-container>
+      <input mdInput placeholder="Usuario" [(ngModel)]="username">
+    </md-input-container>
+  </md-grid-tile >
+  <md-grid-tile colspan=1 rowspan=1>
+    <md-input-container>
+      <input type="password" mdInput placeholder="Contraseña" [(ngModel)]="password">
+    </md-input-container>
+  </md-grid-tile>
+  <md-grid-tile colspan=1 rowspan=1>
+    <button md-raised-button (click)="logInUser()">Validar</button>
+  </md-grid-tile>
+</md-grid-list>
+</div>
