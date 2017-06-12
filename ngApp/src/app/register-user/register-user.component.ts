@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
-
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/map';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-register-user',
@@ -10,29 +7,22 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-  stateCtrl: FormControl;
-  filteredStates: any;
+  private username = "";
+  private firstname = "";
+  private lastname = "";
+  private password = "";
+  private email = "";
+  private date = "";
+  private city = "";
+  private state = "";
+  private postalcode;
 
-  states = [
-    'Andalucía',
-    'Aragón',
-    'Islas Baleares',
-    'Canarias',
-    'Cantabria',
-    'Castilla-La Mancha',
-    'Castilla y León, Cataluña',
-    'Comunidad de Madrid',
-    'Comunidad Foral de Navarra',
-    'Comunidad Valenciana',
-    'Extremadura',
-    'Galicia',
-    'País Vasco',
-    'Principado de Asturias',
-    'Región de Murcia',
-    'La Rioja'
-  ];
-
+  constructor(private service:ApiServiceService) { }
 
   ngOnInit() {}
 
+  registerUser(){
+    this.service.register(this.username,this.password,this.firstname,this.lastname,
+      this.email,this.date,this.city,this.state,this.postalcode);
+  }
 }
